@@ -5,7 +5,7 @@ from WordleGame import WordleGame
 from EvilWordleGame import EvilWordleGame
 
 pygame.init()
-game = WordleGame()
+game = EvilWordleGame()
 
 # TODO: implement color_flash and color_flash_timer (see the K_RETURN code)
 

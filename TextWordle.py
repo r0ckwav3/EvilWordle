@@ -2,7 +2,7 @@ from WordleGame import WordleGame
 from EvilWordleGame import EvilWordleGame
 
 
-wg = WordleGame()
+wg = EvilWordleGame()
 flag = True
 guess_count = 0
 
