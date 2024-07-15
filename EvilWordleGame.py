@@ -3,7 +3,8 @@ class EvilWordleGame():
     # self.word: the possible target words
     # self.guesses: the guesses which the player has made
     # self.good_letters: a bool[26] array representing letters which are guaranteed not in the word
-    # self.wordlist: all legal words
+    # self.wordlist: all possible answer words
+    # self.legalwords: all legal guesses
     def __init__(self):
         self.word = None
         self.guesses = None
@@ -11,9 +12,14 @@ class EvilWordleGame():
         self.used_letters = None
 
         self.wordlist = []
-        f = open("scrabble_v.txt")
+        f = open("wordle_words.txt")
         for line in f.readlines():
             self.wordlist.append(line.strip().upper())
+
+        self.legalwords = []
+        f = open("scrabble_v.txt")
+        for line in f.readlines():
+            self.legalwords.append(line.strip().upper())
 
         self.restartGame()
 
@@ -81,7 +87,7 @@ class EvilWordleGame():
     # returns the word distance, or None if the word is not legal
     def guessWord(self, word):
         word = word.upper()
-        if word not in self.wordlist:
+        if word not in self.legalwords:
             return None
         else:
             self.guesses.append(word)
